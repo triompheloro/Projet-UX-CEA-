@@ -33,13 +33,15 @@ body {
     padding: 15px 20px;
 }
 
-.logo-box {
-    background: #e30613;
-    color: white;
-    padding: 15px 25px;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 2px;
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+    display: block;
 }
 
 .nav {
