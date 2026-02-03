@@ -62,6 +62,106 @@ body {
     color: #e30613;
 }
 
+/* Dropdown Menu */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-link-dropdown {
+    text-decoration: none;
+    color: #555;
+    font-size: 14px;
+    transition: color 0.3s;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.nav-link-dropdown:hover {
+    color: #e30613;
+}
+
+/* Mega Menu */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 15px;
+    min-width: 850px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 10px;
+}
+
+.mega-menu-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.mega-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.mega-menu-item:hover {
+    background: #f8f8f8;
+    border-color: #e30613;
+    transform: translateX(5px);
+}
+
+.mega-menu-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e30613 0%, #a00410 100%);
+    border-radius: 10px;
+    color: white;
+}
+
+.mega-menu-icon svg {
+    stroke: white;
+}
+
+.mega-menu-text {
+    flex: 1;
+}
+
+.mega-menu-text h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 5px 0;
+}
+
+.mega-menu-text p {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
 .btn-contact {
     background: #e30613;
     color: white !important;
@@ -78,6 +178,9 @@ body {
     background: #f8f8f8;
     padding: 15px 0;
     border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 100px;
+    z-index: 90;
 }
 
 .breadcrumb .container {
@@ -122,7 +225,8 @@ body {
 .hero-small {
     position: relative;
     height: 300px;
-    background: linear-gradient(135deg, #e30613 0%, #a00410 100%);
+    background: linear-gradient(rgba(227, 6, 19, 0.85), rgba(160, 4, 16, 0.85)),
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920') center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -923,6 +1027,447 @@ body {
     
     .recruitment-portrait-content h3 {
         font-size: 17px;
+    }
+}
+
+/* ============================================
+   TECHNOLOGY PAGE STYLES
+   ============================================ */
+
+/* Tech Introduction Section */
+.tech-intro-section {
+    padding: 60px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.tech-intro-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f0f0;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.tech-intro-badge svg {
+    stroke: #e30613;
+}
+
+.tech-intro-title {
+    font-size: 42px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+}
+
+.tech-intro-lead {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    font-weight: 400;
+}
+
+/* Tech Domains Section */
+.tech-domains-section {
+    padding: 60px 0;
+}
+
+.section-title-alt {
+    font-size: 38px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.tech-domains-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.tech-domain-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tech-domain-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+.tech-domain-large {
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tech-domain-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.tech-domain-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.tech-domain-card:hover .tech-domain-image img {
+    transform: scale(1.05);
+}
+
+.tech-domain-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.tech-domain-content {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.tech-domain-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #e30613 0%, #a00410 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tech-domain-content h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.tech-domain-content p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.tech-domain-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-tag {
+    background: #f0f0f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Tech Applications Section */
+.tech-applications-section {
+    padding: 60px 0;
+    background: #f8f8f8;
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.tech-applications-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-app-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.tech-app-card:hover {
+    border-color: #e30613;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tech-app-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+    stroke: #e30613;
+    transition: all 0.3s;
+}
+
+.tech-app-card:hover .tech-app-icon {
+    background: linear-gradient(135deg, #e30613 0%, #a00410 100%);
+    stroke: white;
+}
+
+.tech-app-card:hover .tech-app-icon svg {
+    stroke: white;
+}
+
+.tech-app-card h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.tech-app-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Tech Details Section */
+.tech-details-section {
+    padding: 80px 0;
+}
+
+.tech-detail-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.tech-detail-reverse {
+    direction: rtl;
+}
+
+.tech-detail-reverse > * {
+    direction: ltr;
+}
+
+.tech-detail-visual {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-height: 400px;
+}
+
+.tech-detail-visual img {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.tech-detail-card:hover .tech-detail-visual img {
+    transform: scale(1.05);
+}
+
+.tech-detail-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #e30613 0%, #a00410 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.tech-detail-content h3 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.tech-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+}
+
+.tech-detail-list li {
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.tech-detail-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #e30613;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.tech-detail-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #e30613;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.tech-detail-link:hover {
+    gap: 15px;
+}
+
+.tech-detail-link svg {
+    stroke: #e30613;
+}
+
+/* Tech Medical Section */
+.tech-medical-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.tech-medical-intro {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+}
+
+.tech-medical-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-medical-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.tech-medical-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+}
+
+.tech-medical-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 48px;
+    font-weight: 700;
+    color: #f0f0f0;
+}
+
+.tech-medical-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    stroke: #e30613;
+}
+
+.tech-medical-card h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.tech-medical-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .tech-domains-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-applications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tech-detail-card {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .tech-detail-reverse {
+        direction: ltr;
+    }
+    
+    .tech-medical-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-intro-title {
+        font-size: 32px;
+    }
+    
+    .section-title-alt {
+        font-size: 28px;
+    }
+    
+    .tech-applications-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-detail-content h3 {
+        font-size: 24px;
     }
 }
 

@@ -18,7 +18,94 @@
             </div>
             <nav class="nav">
                 <a href="#apropos">À propos</a>
-                <a href="technologie.html">Nos domaines de recherche</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link-dropdown">Nos domaines de recherche ▾</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <a href="#" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Défense & sécurité</h4>
+                                    <p>Technologies de défense et cybersécurité</p>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Énergie nucléaire</h4>
+                                    <p>Recherche sur le nucléaire civil</p>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Énergies renouvelables</h4>
+                                    <p>Solaire, hydrogène et bioénergies</p>
+                                </div>
+                            </a>
+                            <a href="technologie.html" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Numérique</h4>
+                                    <p>IA, calcul et technologies de l'information</p>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <circle cx="12" cy="12" r="6"/>
+                                        <circle cx="12" cy="12" r="2"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Matière & Univers</h4>
+                                    <p>Physique fondamentale et astrophysique</p>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Santé & sciences du vivant</h4>
+                                    <p>Biotechnologies et imagerie médicale</p>
+                                </div>
+                            </a>
+                            <a href="#" class="mega-menu-item">
+                                <div class="mega-menu-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/>
+                                    </svg>
+                                </div>
+                                <div class="mega-menu-text">
+                                    <h4>Climat & environnement</h4>
+                                    <p>Climat, océan et biodiversité</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
                 <a href="#innovation">Innovation</a>
                 <a href="#instituts">Nos instituts</a>
                 <a href="#centres">Nos centres</a>
@@ -258,8 +345,8 @@
             </div>
         </div>
         <div class="chatbot-input">
-            <input type="text" placeholder="Tapez votre message...">
-            <button>
+            <input type="text" id="chatbotInput" placeholder="Tapez votre message...">
+            <button id="chatbotSend">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -333,6 +420,69 @@
                 chatbotBtn.style.display = 'none';
             }
         }
+        
+        // Fonction pour ajouter un message
+        function addMessage(text, isBot = false) {
+            const messagesContainer = document.querySelector('.chatbot-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chatbot-message ${isBot ? 'bot' : 'user'}`;
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'chatbot-bubble';
+            bubbleDiv.textContent = text;
+            
+            messageDiv.appendChild(bubbleDiv);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll vers le bas
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Fonction pour gérer les réponses du bot
+        function handleBotResponse(userMessage) {
+            const message = userMessage.toLowerCase();
+            
+            // Détecter les questions sur le numérique
+            if (message.includes('numérique') || message.includes('numerique')) {
+                addMessage('Nous menons des recherches de pointe dans le domaine du numérique : IA, calcul haute performance, capteurs intelligents et systèmes embarqués. Je vous redirige vers notre page dédiée...', true);
+                
+                // Rediriger après 2 secondes
+                setTimeout(() => {
+                    window.location.href = 'technologie.html';
+                }, 2000);
+            } else if (message.includes('bonjour') || message.includes('salut') || message.includes('hello')) {
+                addMessage('Bonjour ! Je suis l\'assistant virtuel du CEA. Comment puis-je vous aider ?', true);
+            } else if (message.includes('recherche')) {
+                addMessage('Le CEA mène des recherches dans 7 domaines principaux : Défense & sécurité, Énergie nucléaire, Énergies renouvelables, Numérique, Matière & Univers, Santé & sciences du vivant, et Climat & environnement. Sur quel domaine souhaitez-vous en savoir plus ?', true);
+            } else {
+                addMessage('Merci pour votre message. Pour plus d\'informations, n\'hésitez pas à consulter nos différentes sections ou à nous contacter directement.', true);
+            }
+        }
+        
+        // Gérer l'envoi de message
+        function sendMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Ajouter le message de l'utilisateur
+                addMessage(message, false);
+                input.value = '';
+                
+                // Simuler un délai de réponse
+                setTimeout(() => {
+                    handleBotResponse(message);
+                }, 500);
+            }
+        }
+        
+        // Événements du chatbot
+        document.getElementById('chatbotSend').addEventListener('click', sendMessage);
+        document.getElementById('chatbotInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
     </script>
 
 </body>
